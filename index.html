@@ -4,33 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pacific Search</title>
-  <!-- Google Fonts -->
+  <meta name="description" content="Pacific Search - Find the best products across multiple platforms.">
+  <meta property="og:title" content="Pacific Search">
+  <meta property="og:description" content="Find the best products across multiple platforms.">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* CSS Variables for Consistency */
+    :root {
+      --primary-color: #007BFF;
+      --secondary-color: #0056b3;
+      --background-color: #f4f4f4;
+      --text-color: #333;
+      --card-background: #fff;
+      --hover-shadow: rgba(0, 0, 0, 0.1);
+    }
+
     /* Global Styles */
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
+      background-color: var(--background-color);
+      color: var(--text-color);
     }
     a {
       text-decoration: none;
       color: inherit;
     }
+
     /* Header */
     header {
-      background-color: #007BFF;
+      background-color: var(--primary-color);
       padding: 30px 20px;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px var(--hover-shadow);
     }
     header h1 {
       margin: 0;
       font-size: 2.8em;
       letter-spacing: 1px;
     }
+
     /* Search Bar */
     .search-bar {
       display: flex;
@@ -44,22 +58,23 @@
       font-size: 1em;
       border: 1px solid #ddd;
       border-radius: 30px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       transition: border 0.2s ease;
     }
     .search-bar input:focus {
       outline: none;
-      border-color: #007BFF;
+      border-color: var(--primary-color);
     }
+
     /* Platforms Section */
     .platforms {
       display: flex;
       overflow-x: auto;
       padding: 15px 10px;
-      background-color: #fff;
+      background-color: var(--card-background);
       border-radius: 10px;
       margin: 0 20px 25px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px var(--hover-shadow);
     }
     .platform {
       flex: 0 0 auto;
@@ -73,7 +88,7 @@
     }
     .platform:hover {
       transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
     .platform img {
       max-width: 100%;
@@ -81,6 +96,7 @@
       display: block;
       margin: 0 auto;
     }
+
     /* Filter Section */
     .filter-section {
       display: flex;
@@ -88,10 +104,10 @@
       justify-content: center;
       gap: 15px;
       margin: 0 20px 25px;
-      background-color: #fff;
+      background-color: var(--card-background);
       padding: 15px;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px var(--hover-shadow);
     }
     .filter-section select {
       padding: 10px 15px;
@@ -102,8 +118,9 @@
     }
     .filter-section select:focus {
       outline: none;
-      border-color: #007BFF;
+      border-color: var(--primary-color);
     }
+
     /* Product Display Section */
     .product-display {
       display: flex;
@@ -115,10 +132,10 @@
     .product-card {
       flex: 0 0 auto;
       width: 280px;
-      background-color: #fff;
+      background-color: var(--card-background);
       border-radius: 10px;
       padding: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px var(--hover-shadow);
       transition: transform 0.2s;
     }
     .product-card:hover {
@@ -132,7 +149,7 @@
     .product-card h2 {
       font-size: 1.4em;
       margin: 0 0 10px;
-      color: #007BFF;
+      color: var(--primary-color);
     }
     .ecommerce-options {
       display: flex;
@@ -142,7 +159,7 @@
     .ecommerce-option {
       flex: 1;
       padding: 8px;
-      background-color: #007BFF;
+      background-color: var(--primary-color);
       color: #fff;
       text-align: center;
       border-radius: 5px;
@@ -150,7 +167,7 @@
       transition: background-color 0.2s ease;
     }
     .ecommerce-option:hover {
-      background-color: #0056b3;
+      background-color: var(--secondary-color);
     }
     .product-details {
       font-size: 0.9em;
@@ -160,6 +177,7 @@
     .product-details p {
       margin: 4px 0;
     }
+
     /* Responsive Design */
     @media (max-width: 600px) {
       .platforms, .product-display {
@@ -182,11 +200,11 @@
     <h1>Pacific Search</h1>
   </header>
 
-  <div class="search-bar">
-    <input type="text" placeholder="Search for products...">
+  <div class="search-bar" role="search">
+    <input type="text" placeholder="Search for products..." aria-label="Search for products">
   </div>
 
-  <div class="platforms">
+  <div class="platforms" aria-label="Available platforms">
     <div class="platform"><img src="platform1-logo.png" alt="Platform 1"></div>
     <div class="platform"><img src="platform2-logo.png" alt="Platform 2"></div>
     <div class="platform"><img src="platform3-logo.png" alt="Platform 3"></div>
@@ -194,7 +212,7 @@
     <div class="platform"><img src="platform5-logo.png" alt="Platform 5"></div>
   </div>
 
-  <div class="filter-section">
+  <div class="filter-section" aria-label="Filter products">
     <select>
       <option value="">Category</option>
       <option value="electronics">Electronics</option>
@@ -221,7 +239,7 @@
     </select>
   </div>
 
-  <div class="product-display">
+  <div class="product-display" aria-label="Product listings">
     <div class="product-card">
       <img src="product1-image.jpg" alt="Product 1">
       <h2>Product Title 1</h2>
@@ -254,6 +272,31 @@
     </div>
     <!-- Additional product cards can be added here -->
   </div>
+
+  <script>
+    // Search functionality
+    const searchInput = document.querySelector('.search-bar input');
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      const productCards = document.querySelectorAll('.product-card');
+      productCards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        if (title.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Filter functionality (to be implemented)
+    const filterSelects = document.querySelectorAll('.filter-section select');
+    filterSelects.forEach(select => {
+      select.addEventListener('change', () => {
+        // Filter logic here
+      });
+    });
+  </script>
 
 </body>
 </html>
