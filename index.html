@@ -50,6 +50,7 @@
     .search-bar {
       display: flex;
       justify-content: center;
+      align-items: center; /* Center items vertically */
       margin: 15px 0; /* Reduced margin */
     }
     .search-bar input {
@@ -67,8 +68,53 @@
       border-color: var(--primary-color);
     }
 
-    /* Controls Section */
-    .controls {
+    /* Circular Button for Platforms */
+    .platform-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      position: relative;
+      cursor: pointer;
+      margin-left: 10px; /* Space between input and button */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px var(--hover-shadow);
+      transition: background-color 0.2s ease;
+    }
+    .platform-button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* Dropdown for Platforms */
+    .platform-dropdown {
+      display: none; /* Hidden by default */
+      position: absolute;
+      top: 60px; /* Position below the button */
+      right: 0;
+      background-color: var(--card-background);
+      border-radius: 10px;
+      box-shadow: 0 2px 6px var(--hover-shadow);
+      z-index: 1000; /* Ensure it appears above other elements */
+      padding: 10px;
+      width: 200px; /* Set a width for the dropdown */
+    }
+    .platform-dropdown.active {
+      display: block; /* Show when active */
+    }
+    .platform-option {
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .platform-option:hover {
+      background-color: #e0e0e0; /* Light gray on hover */
+    }
+
+    /* Controls Section .controls {
       display: flex;
       overflow-x: auto; /* Allow horizontal scrolling */
       padding: 10px;
@@ -84,40 +130,6 @@
       font-size: 0.95em;
       margin-right: 10px;
       flex: 0 0 auto; /* Prevent shrinking */
-    }
-
-    /* Platforms Section */
-    .platforms-container {
-      padding: 15px 10px;
-      background-color: var(--card-background);
-      border-radius: 10px;
-      margin: 0 20px 25px;
-      box-shadow: 0 2px 6px var(--hover-shadow);
-    }
-    .platforms {
-      display: flex;
-      overflow-x: auto; /* Allow horizontal scrolling */
-      padding: 10px 0;
-    }
-    .platform {
-      flex: 0 0 auto;
-      width: 150px;
-      margin: 0 10px;
-      padding: 15px;
-      background-color: #f8f9fa;
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .platform:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
-    .platform img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
     }
 
     /* Product Display Section */
@@ -185,10 +197,10 @@
       .platforms-container {
         margin: 0 20px; /* Adjust margin for mobile */
       }
-      .platforms, .product-display {
-        flex-direction: column; /* Stack platforms and products vertically */
+      .product-display {
+        flex-direction: column; /* Stack products vertically */
       }
-      .platform, .product-card {
+      .product-card {
         width: 90%; /* Full width on mobile */
       }
     }
@@ -202,9 +214,17 @@
 
   <div class="search-bar" role="search">
     <input type="text" placeholder="Search for products..." aria-label="Search for products">
+    <button class="platform-button" aria-label="Select e-commerce platforms">+</button>
+    <div class="platform-dropdown" aria-label="E-commerce platforms">
+      <div class="platform-option">Amazon</div>
+      <div class="platform-option">Flipkart</div>
+      <div class="platform-option">eBay</div>
+      <div class="platform-option">Walmart</div>
+      <div class="platform-option">Best Buy</div>
+    </div>
   </div>
 
-  <div class="controls" aria-label="Available filters and platforms">
+  <div class="controls" aria-label="Available filters">
     <select>
       <option value="">Category</option>
       <option value="electronics">Electronics</option>
@@ -231,16 +251,7 @@
     </select>
   </div>
 
-  <div class="platforms-container" aria-label="Available platforms">
-    <div class="platforms">
-      <div class="platform"><img src="platform1-logo.png" alt="Platform 1"></div>
-      <div class="platform"><img src="platform2-logo.png" alt="Platform 2"></div>
-      <div class="platform"><img src="platform3-logo.png" alt="Platform 3"></div>
-      <div class="platform"><img src="platform4-logo.png" alt="Platform 4"></div>
-      <div class="platform"><img src="platform5-logo.png" alt="Platform 5"></div>
-    </div>
-  </div>
-
+ ```html
   <div class="product-display" aria-label="Product listings">
     <div class="product-card">
       <img src="product1-image.jpg" alt="Product 1">
@@ -266,8 +277,7 @@
         <div class="ecommerce-option">Best Buy</div>
       </div>
       <div class="product-details">
-        <p><strong>Price:</ ```html
-        $149.99</p>
+        <p><strong>Price:</strong> $149.99</p>
         <p><strong>Discount:</strong> 15% Off</p>
         <p><strong>Offers:</strong> Buy 1 Get 1 Free</p>
         <p><strong>Specifications:</strong> Feature A, Feature B, Feature C</p>
@@ -290,6 +300,20 @@
           card.style.display = 'none';
         }
       });
+    });
+
+    // Dropdown functionality for platforms
+    const platformButton = document.querySelector('.platform-button');
+    const platformDropdown = document.querySelector('.platform-dropdown');
+
+    platformButton.addEventListener('click', (e) => {
+      platformDropdown.classList.toggle('active');
+      e.stopPropagation(); // Prevent click event from bubbling up
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => {
+      platformDropdown.classList.remove('active');
     });
 
     // Filter functionality (to be implemented)
