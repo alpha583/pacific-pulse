@@ -1,47 +1,138 @@
-        <option value="3">3 Stars</option>
-        <option value="4">4 Stars</option>
-        <option value="5">5 Stars</option>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacific Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .platforms {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .platform {
+            min-width: 150px;
+            margin: 0 10px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .platform:hover {
+            transform: scale(1.05);
+        }
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .filter-section select {
+            margin: 0 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .product-display {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+        }
+        .product-card {
+            min-width: 250px;
+            margin: 0 10px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .ecommerce-options {
+            display: flex;
+            margin: 10px 0;
+        }
+        .ecommerce-option {
+            margin-right: 10px;
+            padding: 5px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            flex: 1;
+        }
+        .product-details {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Pacific Search</h1>
+</header>
+
+<div class="search-bar">
+    <input type="text" placeholder="Search for products...">
+</div>
+
+<div class="platforms">
+    <div class="platform"><img src="platform1-logo.png" alt="Platform 1"></div>
+    <div class="platform"><img src="platform2-logo.png" alt="Platform 2"></div>
+    <div class="platform"><img src="platform3-logo.png" alt="Platform 3"></div>
+    <div class="platform"><img src="platform4-logo.png" alt="Platform 4"></div>
+    <div class="platform"><img src="platform5-logo.png" alt="Platform 5"></div>
+</div>
+
+<div class="filter-section">
+    <select>
+        <option value="">Category</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="home">Home</option>
     </select>
     <select>
-        <option value="">Availability</option>
-        <option value="in-stock">In Stock</option>
-        <option value="out-of-stock">Out of Stock</option>
+        <option value="">Price</option>
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
     </select>
-</div>
-
-<div class="product-display">
-    <div class="product-card">
-        <img src="product1-image.jpg" alt="Product 1">
-        <h2>Product Title 1</h2>
-        <div class="ecommerce-options">
-            <div class="ecommerce-option">Amazon</div>
-            <div class="ecommerce-option">Flipkart</div>
-            <div class="ecommerce-option">eBay</div>
-        </div>
-        <div class="product-details">
-            <p>Price: $99.99</p>
-            <p>Discount: 10%</p>
-            <p>Offers: Free Shipping</p>
-            <p>Specifications: Feature 1, Feature 2, Feature 3</p>
-        </div>
-    </div>
-    <div class="product-card">
-        <img src="product2-image.jpg" alt="Product 2">
-        <h2>Product Title 2</h2>
-        <div class="ecommerce-options">
-            <div class="ecommerce-option">Amazon</div>
-            <div class="ecommerce-option">Walmart</div>
-            <div class="ecommerce-option">Best Buy</div>
-        </div>
-        <div class="product-details">
-            <p>Price: $149.99</p>
-            <p>Discount: 15%</p>
-            <p>Offers: Buy 1 Get 1 Free</p>
-            <p>Specifications: Feature A, Feature B, Feature C</p>
-        </div>
-    </div>
-    <!-- Add more product cards as needed -->
-</div>
-
-</body>
-</html>
+    <select>
+        <option value="">Ratings</option>
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value
