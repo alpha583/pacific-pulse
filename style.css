@@ -1,106 +1,114 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 header {
-    background: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
+  background: #0077b6;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.top-bar {
+  text-align: right;
+}
+
+#language-select {
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .search-bar {
-    margin: 20px auto;
-    max-width: 600px;
+  margin-top: 20px;
 }
 
 .search-bar input {
+  padding: 10px;
+  width: 60%;
+  max-width: 400px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  border: none;
+  background: #023e8a;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  padding: 20px;
+}
+
+.filter-panel {
+  width: 20%;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.filter-panel h3 {
+  margin-top: 0;
+}
+
+.filter-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.filter-panel ul li {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.filter-panel ul li ul {
+  margin-left: 20px;
+}
+
+.content-area {
+  flex: 1;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+footer {
+  background: #0077b6;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .filter-panel {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 
-.ecommerce-platforms {
-    display: flex;
-    overflow-x: auto;
-    padding: 10px;
-    background: white;
-    margin: 20px 0;
-}
-
-.platform {
-    min-width: 150px;
-    margin-right: 10px;
-    padding: 10px;
-    background: #e9ecef;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.filter-section {
-    padding: 10px;
-    background: white;
-    margin: 20px 0;
-}
-
-.filter-section label {
-    margin-right: 10px;
-}
-
-.product-display {
-    display: flex;
-    overflow-x: auto;
-    padding: 10px;
-    background: white;
-    margin: 20px 0;
-}
-
-.product {
-    min-width: 200px;
-    margin-right: 10px;
-    padding: 10px;
-    background: #e9ecef;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.product img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-.ecommerce-options {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.ecommerce-option {
-    min-width: 80px;
-    margin: 0 5px;
-    padding: 5px;
-    background: #f8f9fa;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.specifications {
-    margin-top: 10px;
-    text-align: left;
-}
-
-@media (max-width: 600px) {
-    .ecommerce-platforms, .product-display {
-        flex-direction: column;
-        align-items: center;
-    }
-    .platform, .product {
-        min-width: 100%;
-        margin: 10px 0;
-    }
+  .search-bar input {
+    width: 70%;
+  }
 }
