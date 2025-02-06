@@ -8,13 +8,7 @@
 </head>
 <body>
   <header>
-    <div class="top-bar">
-      <select id="language-select">
-        <option value="en">English</option>
-        <option value="hi">Hinglish</option>
-      </select>
-    </div>
-    <div class="logo">
+    <div class="blue-ribbon">
       <h1>Pacific Search</h1>
     </div>
     <div class="search-bar">
@@ -23,21 +17,25 @@
     </div>
   </header>
 
+  <div class="scrolling-message">
+    <p>Welcome to Pacific Search - Find detailed reviews for your favorite products. Use the filters or search bar to get started!</p>
+  </div>
+
   <main>
     <aside class="filter-panel">
       <h3>Filter by Category</h3>
       <ul>
-        <li>Cars</li>
-        <li>Mobiles
-          <ul>
+        <li class="filter-option">Cars</li>
+        <li class="filter-option">Mobiles
+          <ul class="sub-options">
             <li>Apple</li>
             <li>Samsung</li>
             <li>Redmi</li>
             <li>OnePlus</li>
           </ul>
         </li>
-        <li>PC Motherboard & Other Electronics
-          <ul>
+        <li class="filter-option">PC Motherboard & Other Electronics
+          <ul class="sub-options">
             <li>Gaming Motherboards</li>
             <li>Workstation Motherboards</li>
             <li>Accessories</li>
