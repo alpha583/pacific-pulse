@@ -6,10 +6,21 @@ document.getElementById('language-select').addEventListener('change', function c
   } else {
     alert('Language changed to Hinglish');
   }
-}
+});
 
-document.getElementById('language-select').addEventListener('change', changeLanguage);
-``` ### HTML (index.html)
+// Filter Interaction
+const filterOptions = document.querySelectorAll('.filter-option');
+filterOptions.forEach(option => {
+  option.addEventListener('click', function() {
+    const subOptions = this.querySelector('.sub-options');
+    if (subOptions) {
+      subOptions.style.display = subOptions.style.display === 'block' ? 'none' : 'block';
+    }
+  });
+});
+``` Here’s the complete code for the updated **Pacific Search** website, incorporating all your specified features and ensuring a professional and mobile-friendly design.
+
+### HTML (index.html)
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -21,13 +32,7 @@ document.getElementById('language-select').addEventListener('change', changeLang
 </head>
 <body>
   <header>
-    <div class="top-bar">
-      <select id="language-select">
-        <option value="en">English</option>
-        <option value="hi">Hinglish</option>
-      </select>
-    </div>
-    <div class="logo">
+    <div class="blue-ribbon">
       <h1>Pacific Search</h1>
     </div>
     <div class="search-bar">
@@ -36,21 +41,25 @@ document.getElementById('language-select').addEventListener('change', changeLang
     </div>
   </header>
 
+  <div class="scrolling-message">
+    <p>Welcome to Pacific Search - Find detailed reviews for your favorite products. Use the filters or search bar to get started!</p>
+  </div>
+
   <main>
     <aside class="filter-panel">
       <h3>Filter by Category</h3>
       <ul>
-        <li>Cars</li>
-        <li>Mobiles
-          <ul>
+        <li class="filter-option">Cars</li>
+        <li class="filter-option">Mobiles
+          <ul class="sub-options">
             <li>Apple</li>
             <li>Samsung</li>
             <li>Redmi</li>
             <li>OnePlus</li>
           </ul>
         </li>
-        <li>PC Motherboard & Other Electronics
-          <ul>
+        <li class="filter-option">PC Motherboard & Other Electronics
+          <ul class="sub-options">
             <li>Gaming Motherboards</li>
             <li>Workstation Motherboards</li>
             <li>Accessories</li>
